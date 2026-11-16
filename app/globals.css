@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@400;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -66,3 +67,25 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* RETHEME 2026 */
+:root {
+  --background:50 100% 96%; --foreground:0 0% 7%; --card:0 0% 100%; --card-foreground:0 0% 7%;
+  --popover:0 0% 100%; --popover-foreground:0 0% 7%;
+  --primary:0 0% 7%; --primary-foreground:50 98% 64%;
+  --secondary:330 100% 69%; --secondary-foreground:0 0% 7%;
+  --muted:50 60% 92%; --muted-foreground:0 0% 30%;
+  --accent:50 98% 88%; --accent-foreground:0 0% 7%;
+  --border:0 0% 7%; --input:0 0% 7%; --ring:330 100% 69%; --radius:1rem;
+}
+body { font-family:'Bricolage Grotesque',system-ui,sans-serif !important; background:#FFFBEA !important; color:#111 !important; }
+code,pre { font-family:'JetBrains Mono',ui-monospace,monospace !important; }
+h1,h2,h3 { font-weight:800 !important; letter-spacing:-.035em; }
+.border,.border-2 { border-color:#111 !important; }
+.border { border-width:2px; }
+.shadow-sm,.shadow,.shadow-md,.shadow-lg,.shadow-xl,.shadow-2xl { box-shadow:4px 4px 0 #111 !important; }
+button.bg-primary,a.bg-primary,.bg-indigo-600 { box-shadow:3px 3px 0 #111; border:2px solid #111; }
+.glass { background:rgba(255,251,234,.92) !important; border-bottom:2px solid #111 !important; }
+.gradient-text { background:none !important; -webkit-text-fill-color:#111 !important; color:#111 !important; }
+::-webkit-scrollbar-track { background:#FFFBEA; } ::-webkit-scrollbar-thumb { background:#111; }
+::selection { background:#FF5FA2; color:#111; }

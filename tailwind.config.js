@@ -9,6 +9,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        /* RETHEME */ indigo:{'50':'#fff0f7','100':'#ffe0ef','200':'#ffc2df','300':'#ff9cc9','400':'#ff7bb6','500':'#ff5fa2','600':'#e63d86','700':'#c0286b','800':'#951f53','900':'#6b1a3d','950':'#430d24'}, violet:{'50':'#fff0f7','100':'#ffe0ef','200':'#ffc2df','300':'#ff9cc9','400':'#ff7bb6','500':'#ff5fa2','600':'#e63d86','700':'#c0286b','800':'#951f53','900':'#6b1a3d','950':'#430d24'},
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
