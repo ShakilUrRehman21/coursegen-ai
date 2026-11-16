@@ -69,7 +69,7 @@ function FinishLayout({ params }) {
           </div>
 
           <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Congratulations! Your Course is Ready 🎉
+            Congratulations! Your Course is Ready
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto leading-relaxed">
             All curriculum chapters, detailed lesson content, and relevant video tutorials have been synthesized and published.
