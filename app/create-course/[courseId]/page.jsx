@@ -127,7 +127,9 @@ Return strictly a valid JSON array of objects.`;
     } catch (error) {
       console.error("Critical error generating chapter content:", error);
       alert(
-        "An error occurred while generating chapter content. Please retry or check your network."
+        error?.message?.includes("AI service is busy")
+          ? error.message
+          : "Something went wrong while generating chapters. Please try again."
       );
       setLoading(false);
     }

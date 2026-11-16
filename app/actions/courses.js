@@ -48,15 +48,25 @@ function checkPrompt(prompt) {
 export async function generateLayoutText(prompt) {
   await requireEmail();
   checkPrompt(prompt);
-  const result = await GenerateCourseLayout_AI.sendMessage(prompt);
-  return result.response.text();
+  try {
+    const result = await GenerateCourseLayout_AI.sendMessage(prompt);
+    return { text: result.response.text() };
+  } catch (err) {
+    console.error("Course layout generation failed:", err?.message || err);
+    return { error: "The AI service is busy right now (Google Gemini is overloaded or your daily quota is used up). Please try again in a few minutes." };
+  }
 }
 
 export async function generateChapterText(prompt) {
   await requireEmail();
   checkPrompt(prompt);
-  const result = await GenerateChapterContent_AI.sendMessage(prompt);
-  return result.response.text();
+  try {
+    const result = await GenerateChapterContent_AI.sendMessage(prompt);
+    return { text: result.response.text() };
+  } catch (err) {
+    console.error("Chapter generation failed:", err?.message || err);
+    return { error: "The AI service is busy right now (Google Gemini is overloaded or your daily quota is used up). Please try again in a few minutes." };
+  }
 }
 
 export async function searchVideos(query) {

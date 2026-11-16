@@ -9,8 +9,11 @@ const CANDIDATE_MODELS = [
   "gemini-flash-latest",
   "gemini-flash-lite-latest",
   "gemini-3.8-flash",
-  "gemini-pro-latest",
 ];
+
+// Fail fast instead of hanging for minutes when Google is overloaded.
+const REQUEST_TIMEOUT_MS = 25000;
+const ATTEMPTS_PER_MODEL = 1;
 
 /**
  * Execute generation with multi-model fallback and retry logic
@@ -19,7 +22,7 @@ async function callGeminiWithFallback(prompt) {
   let lastError = null;
 
   for (const modelName of CANDIDATE_MODELS) {
-    for (let attempt = 0; attempt < 2; attempt++) {
+    for (let attempt = 0; attempt < ATTEMPTS_PER_MODEL; attempt++) {
       try {
         const model = genAI.getGenerativeModel({
           model: modelName,
@@ -30,7 +33,7 @@ async function callGeminiWithFallback(prompt) {
             maxOutputTokens: 8192,
             responseMimeType: "application/json",
           },
-        });
+        }, { timeout: REQUEST_TIMEOUT_MS });
 
         const response = await model.generateContent(prompt);
         const text = response.response.text();
@@ -42,7 +45,8 @@ async function callGeminiWithFallback(prompt) {
         console.warn(
           `Gemini [${modelName}] attempt ${attempt + 1} warning: ${err.message || err.status}`
         );
-        // Short pause before retrying or switching models
+        // Quota errors will not clear by retrying: move straight to the next model.
+        if (String(err?.message || "").includes("429")) break;
         await new Promise((resolve) => setTimeout(resolve, 800));
       }
     }

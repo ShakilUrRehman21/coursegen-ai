@@ -3,8 +3,9 @@ import { generateChapterText, generateLayoutText, searchVideos } from "@/app/act
 /** Browser-side stand-ins. Prompts and video searches run on the server, so API keys stay private. */
 const wrap = (fn) => ({
   sendMessage: async (prompt) => {
-    const text = await fn(prompt);
-    return { response: { text: () => text } };
+    const result = await fn(prompt);
+    if (result?.error) throw new Error(result.error);
+    return { response: { text: () => result.text } };
   },
 });
 

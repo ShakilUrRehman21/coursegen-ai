@@ -118,7 +118,7 @@ Return strictly a single JSON object with this exact structure:
       await SaveCourseLayoutInDb(courseLayout);
     } catch (error) {
       console.error("Error generating layout:", error);
-      alert("Failed to generate course layout. Please verify your connection and try again.");
+      alert(error?.message?.includes("AI service is busy") ? error.message : "Failed to generate course layout. Please try again.");
       setLoading(false);
     }
   };
