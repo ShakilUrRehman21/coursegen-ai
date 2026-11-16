@@ -1,9 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { db } from "@/configs/db";
-import { CourseList } from "@/configs/schema";
 import { useUser } from "@clerk/nextjs";
-import { and, eq } from "drizzle-orm";
 import Link from "next/link";
 import CourseBasicInfo from "../_components/CourseBasicInfo";
 import { Button } from "@/components/ui/button";
@@ -14,6 +11,7 @@ import {
   HiOutlineSquares2X2,
   HiOutlineCheck,
 } from "react-icons/hi2";
+import { getOwnedCourseRows } from "@/app/actions/courses";
 
 function FinishLayout({ params }) {
   const { user } = useUser();
@@ -29,15 +27,7 @@ function FinishLayout({ params }) {
   const GetCourse = async () => {
     try {
       const email = user?.primaryEmailAddress?.emailAddress;
-      const result = await db
-        .select()
-        .from(CourseList)
-        .where(
-          and(
-            eq(CourseList.courseId, params?.courseId),
-            eq(CourseList.createdBy, email)
-          )
-        );
+      const result = await getOwnedCourseRows(params?.courseId);
       setCourse(result[0]);
     } catch (err) {
       console.error("Error fetching course for finish page:", err);

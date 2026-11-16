@@ -12,9 +12,7 @@ import {
 import EditCourseBasicInfo from "./EditCourseBasicInfo";
 import { storage } from "@/configs/fireBase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { db } from "@/configs/db";
-import { CourseList } from "@/configs/schema";
-import { eq } from "drizzle-orm";
+import { updateCourseBanner } from "@/app/actions/courses";
 
 function CourseBasicInfo({ course, refreshData, edit = true }) {
   const [selectedFile, setSelectedFile] = useState(course?.courseBanner || "/placeholder.jpg");
@@ -41,10 +39,7 @@ function CourseBasicInfo({ course, refreshData, edit = true }) {
       await uploadBytes(storageRef, file);
       const downloadUrl = await getDownloadURL(storageRef);
 
-      await db
-        .update(CourseList)
-        .set({ courseBanner: downloadUrl })
-        .where(eq(CourseList.courseId, course?.courseId));
+      await updateCourseBanner(course?.courseId, downloadUrl);
 
       if (refreshData) {
         refreshData();

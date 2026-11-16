@@ -1,8 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { db } from "@/configs/db";
-import { Chapters, CourseList } from "@/configs/schema";
-import { and, eq } from "drizzle-orm";
 import ChapterListCard from "./_components/ChapterListCard";
 import ChapterContent from "./_components/ChapterContent";
 import Link from "next/link";
@@ -13,6 +10,7 @@ import {
   HiOutlineXMark,
   HiOutlineSparkles,
 } from "react-icons/hi2";
+import { getChapterRows, getCourseRows } from "@/app/actions/courses";
 
 function CourseStart({ params }) {
   const [course, setCourse] = useState(null);
@@ -30,10 +28,7 @@ function CourseStart({ params }) {
 
   const GetCourse = async () => {
     try {
-      const result = await db
-        .select()
-        .from(CourseList)
-        .where(eq(CourseList.courseId, params?.courseId));
+      const result = await getCourseRows(params?.courseId);
 
       if (result.length > 0) {
         const courseData = result[0];
@@ -57,15 +52,7 @@ function CourseStart({ params }) {
 
     try {
       setLoadingContent(true);
-      const result = await db
-        .select()
-        .from(Chapters)
-        .where(
-          and(
-            eq(Chapters.chapterId, chapterIndex),
-            eq(Chapters.courseId, courseId)
-          )
-        );
+      const result = await getChapterRows(courseId, chapterIndex);
 
       if (result.length > 0) {
         setChapterContent(result[0]);

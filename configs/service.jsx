@@ -7,7 +7,7 @@ const YOUTUBE_BASE_URL = "https://www.googleapis.com/youtube/v3";
  * Gracefully handles missing keys, quota limits, and network errors.
  */
 const getVideos = async (query) => {
-  const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY || process.env.YOUTUBE_API_KEY;
+  const apiKey = process.env.YOUTUBE_API_KEY || process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
   if (!apiKey || !query) {
     console.warn("YouTube API key or query missing, skipping video search.");
     return [];

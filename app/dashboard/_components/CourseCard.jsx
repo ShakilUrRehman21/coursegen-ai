@@ -4,19 +4,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { HiOutlineBookOpen, HiEllipsisVertical, HiOutlineClock, HiOutlineSparkles } from 'react-icons/hi2';
 import DropdownOption from './DropdownOption';
-import { db } from '@/configs/db';
-import { Chapters, CourseList } from '@/configs/schema';
-import { eq } from 'drizzle-orm';
+import { deleteCourse } from "@/app/actions/courses";
 
 function CourseCard({ course, refreshData, displayUser = false }) {
   const handleOnDelete = async () => {
     try {
       // 1. Delete associated chapters to avoid orphaned database records
       if (course?.courseId) {
-        await db.delete(Chapters).where(eq(Chapters.courseId, course.courseId));
+        await deleteCourse(course.courseId);
       }
       // 2. Delete the course entry
-      await db.delete(CourseList).where(eq(CourseList.id, course?.id));
+      
 
       if (refreshData) {
         refreshData();

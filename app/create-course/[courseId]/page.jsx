@@ -1,19 +1,17 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { db } from "@/configs/db";
-import { Chapters, CourseList } from "@/configs/schema";
 import { useUser } from "@clerk/nextjs";
-import { and, eq } from "drizzle-orm";
 import CourseBasicInfo from "./_components/CourseBasicInfo";
 import CourseDetail from "./_components/CourseDetail";
 import ChapterList from "./_components/ChapterList";
 import { Button } from "@/components/ui/button";
-import { GenerateChapterContent_AI } from "@/configs/AiModel";
+import { GenerateChapterContent_AI } from "@/configs/aiClient";
 import LoadingDialog from "../_components/LoadingDialog";
-import service from "@/configs/service";
+import service from "@/configs/aiClient";
 import { useRouter } from "next/navigation";
 import { safeJsonParse } from "@/lib/jsonHelper";
 import { HiOutlineSparkles, HiOutlineArrowRight } from "react-icons/hi2";
+import { deleteChapters, getOwnedCourseRows, insertChapter, publishCourse } from "@/app/actions/courses";
 
 function CourseLayout({ params }) {
   const { user } = useUser();
@@ -31,15 +29,7 @@ function CourseLayout({ params }) {
   const GetCourse = async () => {
     try {
       const email = user?.primaryEmailAddress?.emailAddress;
-      const result = await db
-        .select()
-        .from(CourseList)
-        .where(
-          and(
-            eq(CourseList.courseId, params?.courseId),
-            eq(CourseList.createdBy, email)
-          )
-        );
+      const result = await getOwnedCourseRows(params?.courseId);
 
       if (result.length > 0) {
         setCourse(result[0]);
@@ -62,7 +52,7 @@ function CourseLayout({ params }) {
 
     try {
       // 1. Clean up any existing chapters for this course to prevent duplicates
-      await db.delete(Chapters).where(eq(Chapters.courseId, course?.courseId));
+      await deleteChapters(course?.courseId);
 
       const courseTitle =
         course?.courseOutput?.course_name || course?.name || "Tutorial";
@@ -120,7 +110,7 @@ Return strictly a valid JSON array of objects.`;
         ]);
 
         // Save into Chapters table
-        await db.insert(Chapters).values({
+        await insertChapter({
           chapterId: index,
           courseId: course?.courseId,
           content: parsedContent,
@@ -130,10 +120,7 @@ Return strictly a valid JSON array of objects.`;
 
       // 3. Mark course as published once all chapters are generated
       setLoadingMessage("Finalizing course curriculum...");
-      await db
-        .update(CourseList)
-        .set({ publish: true })
-        .where(eq(CourseList.courseId, course?.courseId));
+      await publishCourse(course?.courseId);
 
       // 4. Navigate to finish screen
       router.replace(`/create-course/${course?.courseId}/finish`);

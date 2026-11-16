@@ -14,14 +14,13 @@ import SelectCategory from "./_components/SelectCategory";
 import TopicDescription from "./_components/TopicDescription";
 import SelectOptions from "./_components/SelectOptions";
 import { UserInputContext } from "../_context/UserInputContext";
-import { GenerateCourseLayout_AI } from "@/configs/AiModel";
+import { GenerateCourseLayout_AI } from "@/configs/aiClient";
 import LoadingDialog from "./_components/LoadingDialog";
-import { db } from "@/configs/db";
-import { CourseList } from "@/configs/schema";
 import uuid4 from "uuid4";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { safeJsonParse } from "@/lib/jsonHelper";
+import { createCourse } from "@/app/actions/courses";
 
 function CreateCourse() {
   const stepperOptions = [
@@ -129,7 +128,7 @@ Return strictly a single JSON object with this exact structure:
     setLoadingMessage("Saving curriculum to your workspace...");
 
     try {
-      await db.insert(CourseList).values({
+      await createCourse({
         courseId: courseId,
         name: UserCourseInput?.topic || courseLayout?.course_name,
         level: UserCourseInput?.level || "Beginner",

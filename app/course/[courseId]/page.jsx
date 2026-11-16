@@ -5,12 +5,10 @@ import Footer from "@/app/_components/Footer";
 import CourseBasicInfo from "@/app/create-course/[courseId]/_components/CourseBasicInfo";
 import CourseDetail from "@/app/create-course/[courseId]/_components/CourseDetail";
 import ChapterList from "@/app/create-course/[courseId]/_components/ChapterList";
-import { db } from "@/configs/db";
-import { CourseList } from "@/configs/schema";
-import { eq } from "drizzle-orm";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { HiOutlineArrowLeft, HiOutlinePlay } from "react-icons/hi2";
+import { getCourseRows } from "@/app/actions/courses";
 
 function Course({ params }) {
   const [course, setCourse] = useState(null);
@@ -25,10 +23,7 @@ function Course({ params }) {
   const GetCourse = async () => {
     try {
       setLoading(true);
-      const result = await db
-        .select()
-        .from(CourseList)
-        .where(eq(CourseList.courseId, params?.courseId));
+      const result = await getCourseRows(params?.courseId);
 
       if (result.length > 0) {
         setCourse(result[0]);

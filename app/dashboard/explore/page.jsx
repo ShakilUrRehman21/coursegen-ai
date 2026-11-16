@@ -1,8 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { db } from "@/configs/db";
-import { CourseList } from "@/configs/schema";
-import { eq, desc } from "drizzle-orm";
 import CourseCard from "../_components/CourseCard";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,6 +9,7 @@ import {
   HiOutlineArrowRight,
   HiOutlineAcademicCap,
 } from "react-icons/hi2";
+import { listPublishedCourses } from "@/app/actions/courses";
 
 function Explore() {
   const [courseList, setCourseList] = useState([]);
@@ -27,13 +25,7 @@ function Explore() {
   const GetAllCourse = async () => {
     try {
       setLoading(true);
-      const result = await db
-        .select()
-        .from(CourseList)
-        .where(eq(CourseList.publish, true))
-        .orderBy(desc(CourseList.id))
-        .limit(PAGE_SIZE)
-        .offset(pageIndex * PAGE_SIZE);
+      const result = await listPublishedCourses(pageIndex, PAGE_SIZE);
 
       setCourseList(result || []);
     } catch (err) {

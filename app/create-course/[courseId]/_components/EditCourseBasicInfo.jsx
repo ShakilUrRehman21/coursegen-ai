@@ -14,9 +14,7 @@ import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { CourseList } from "@/configs/schema";
-import { db } from "@/configs/db";
-import { eq } from "drizzle-orm";
+import { updateCourseInfo } from "@/app/actions/courses";
 
 function EditCourseBasicInfo({ course, refreshData }) {
   const [name, setName] = useState("");
@@ -40,13 +38,7 @@ function EditCourseBasicInfo({ course, refreshData }) {
         description: description,
       };
 
-      await db
-        .update(CourseList)
-        .set({
-          name: name,
-          courseOutput: updatedOutput,
-        })
-        .where(eq(CourseList.courseId, course?.courseId));
+      await updateCourseInfo(course?.courseId, { name, courseOutput: updatedOutput });
 
       setOpen(false);
       if (refreshData) {

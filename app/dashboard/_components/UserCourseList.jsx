@@ -1,14 +1,12 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
-import { db } from "@/configs/db";
-import { CourseList } from "@/configs/schema";
 import { useUser } from "@clerk/nextjs";
-import { eq, desc } from "drizzle-orm";
 import CourseCard from "./CourseCard";
 import { UserCourseListContext } from "@/app/_context/UserCourseListContext";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { HiOutlineMagnifyingGlass, HiOutlineAcademicCap, HiOutlinePlus } from "react-icons/hi2";
+import { listMyCourses } from "@/app/actions/courses";
 
 function UserCourseList() {
   const [courseList, setCourseList] = useState([]);
@@ -29,11 +27,7 @@ function UserCourseList() {
       const email = user?.primaryEmailAddress?.emailAddress;
       if (!email) return;
 
-      const result = await db
-        .select()
-        .from(CourseList)
-        .where(eq(CourseList.createdBy, email))
-        .orderBy(desc(CourseList.id));
+      const result = await listMyCourses();
 
       setCourseList(result || []);
       setUserCourseList(result || []);
