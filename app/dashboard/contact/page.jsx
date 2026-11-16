@@ -105,7 +105,7 @@ function ContactForm() {
               <Button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-primary hover:bg-primary-700 text-white font-semibold rounded-xl h-11 shadow-md shadow-indigo-500/20"
+                className="w-full bg-primary hover:bg-primary-700 text-white font-semibold rounded-xl h-11 shadow-md"
               >
                 {loading ? "Sending Message..." : "Send Message"}
               </Button>

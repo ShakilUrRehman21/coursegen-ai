@@ -20,10 +20,10 @@ function LoadingDialog({ loading, title = "Generating Your Course", message = "P
           <div className="flex flex-col items-center text-center py-4 space-y-5">
             {/* Ambient Animated Glow Icon */}
             <div className="relative">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-primary to-sky-400 flex items-center justify-center text-white shadow-xl shadow-indigo-500/30 animate-pulse">
+              <div className="w-16 h-16 rounded-2xl bg-[#fde047] border-[3px] border-[#111] flex items-center justify-center text-[#111] shadow-[5px_5px_0_#111] animate-pulse">
                 <HiOutlineSparkles className="w-8 h-8 animate-spin-slow" />
               </div>
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-indigo-500 to-sky-400 opacity-30 blur-lg animate-pulse" />
+              <div className="absolute -inset-1 rounded-2xl hidden" />
             </div>
 
             <div>
@@ -37,7 +37,7 @@ function LoadingDialog({ loading, title = "Generating Your Course", message = "P
 
             {/* Subtle progress indicator */}
             <div className="w-full max-w-[200px] h-1.5 bg-slate-100 rounded-full overflow-hidden">
-              <div className="h-full bg-gradient-to-r from-primary to-sky-400 rounded-full animate-indeterminate" />
+              <div className="h-full bg-[#ff5fa2] rounded-full animate-indeterminate" />
             </div>
 
             <p className="text-[11px] text-slate-400 italic">

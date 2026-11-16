@@ -192,7 +192,7 @@ function ChapterContent({
         <Button
           disabled={!hasNext}
           onClick={onNext}
-          className="rounded-xl bg-primary hover:bg-primary-700 text-white gap-2 text-xs sm:text-sm font-semibold shadow-md shadow-indigo-500/20"
+          className="rounded-xl bg-primary hover:bg-primary-700 text-white gap-2 text-xs sm:text-sm font-semibold shadow-md"
         >
           <span>Next Chapter</span>
           <HiOutlineArrowRight className="w-4 h-4" />

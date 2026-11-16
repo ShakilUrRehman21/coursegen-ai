@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        /* RETHEME */ indigo:{'50':'#fff0f7','100':'#ffe0ef','200':'#ffc2df','300':'#ff9cc9','400':'#ff7bb6','500':'#ff5fa2','600':'#e63d86','700':'#c0286b','800':'#951f53','900':'#6b1a3d','950':'#430d24'}, violet:{'50':'#fff0f7','100':'#ffe0ef','200':'#ffc2df','300':'#ff9cc9','400':'#ff7bb6','500':'#ff5fa2','600':'#e63d86','700':'#c0286b','800':'#951f53','900':'#6b1a3d','950':'#430d24'},
-        background: "hsl(var(--background))",
+        /* RETHEME */ indigo:{'50':'#fef9c3','100':'#fef08a','200':'#fde047','300':'#facc15','400':'#404040','500':'#262626','600':'#111111','700':'#000000','800':'#000000','900':'#000000','950':'#000000'}, violet:{'50':'#fef9c3','100':'#fef08a','200':'#fde047','300':'#facc15','400':'#404040','500':'#262626','600':'#111111','700':'#000000','800':'#000000','900':'#000000','950':'#000000'}, slate:{'50':'#fffbea','100':'#f7f0d6','200':'#e7e0c9','300':'#cfc8b0','400':'#9a9484','500':'#6b665a','600':'#4d493f','700':'#36332c','800':'#22201b','900':'#111111','950':'#0a0a0a'},
+                background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
           DEFAULT: "hsl(var(--card))",
@@ -21,25 +21,15 @@ module.exports = {
           foreground: "hsl(var(--popover-foreground))",
         },
         primary: {
-          DEFAULT: "#4f46e5", // Indigo 600 - crisp, modern, vibrant
-          50: "#eef2ff",
-          100: "#e0e7ff",
-          200: "#c7d2fe",
-          300: "#a5b4fc",
-          400: "#818cf8",
-          500: "#6366f1",
-          600: "#4f46e5",
-          700: "#4338ca",
-          800: "#3730a3",
-          900: "#312e81",
+          DEFAULT: "#111111",
+          50: "#fef9c3", 100: "#fef08a", 200: "#fde047", 300: "#facc15", 400: "#404040",
+          500: "#262626", 600: "#111111", 700: "#000000", 800: "#000000", 900: "#000000",
           foreground: "#ffffff",
         },
         secondary: {
-          DEFAULT: "#0ea5e9", // Sky 500
-          50: "#f0f9ff",
-          100: "#e0f2fe",
-          600: "#0284c7",
-          foreground: "#ffffff",
+          DEFAULT: "#ff5fa2",
+          50: "#fff0f7", 100: "#ffe0ef", 600: "#e63d86",
+          foreground: "#111111",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",

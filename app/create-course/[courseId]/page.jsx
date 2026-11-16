@@ -166,7 +166,7 @@ Return strictly a valid JSON array of objects.`;
 
           <Button
             onClick={GenerateChapterContent}
-            className="bg-primary hover:bg-primary-700 text-white font-semibold rounded-xl gap-2 shadow-lg shadow-indigo-500/25 px-6 self-start sm:self-auto"
+            className="bg-primary hover:bg-primary-700 text-white font-semibold rounded-xl gap-2 shadow-lg px-6 self-start sm:self-auto"
           >
             <HiOutlineSparkles className="w-5 h-5" />
             <span>Generate Course Content</span>
@@ -188,7 +188,7 @@ Return strictly a valid JSON array of objects.`;
           <Button
             size="lg"
             onClick={GenerateChapterContent}
-            className="w-full sm:w-auto bg-primary hover:bg-primary-700 text-white font-bold rounded-xl gap-2 shadow-lg shadow-indigo-500/25 px-8"
+            className="w-full sm:w-auto bg-primary hover:bg-primary-700 text-white font-bold rounded-xl gap-2 shadow-lg px-8"
           >
             <HiOutlineSparkles className="w-5 h-5" />
             <span>Generate All Chapters & Sync Videos</span>

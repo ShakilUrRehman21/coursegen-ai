@@ -45,7 +45,7 @@ function Hero() {
           {/* Action CTAs */}
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/create-course" className="w-full sm:w-auto">
-              <Button size="lg" className="w-full sm:w-auto h-12 px-8 text-base font-semibold bg-primary hover:bg-primary-700 text-white shadow-lg shadow-indigo-500/25 rounded-xl group transition-all">
+              <Button size="lg" className="w-full sm:w-auto h-12 px-8 text-base font-semibold bg-primary hover:bg-primary-700 text-white shadow-lg rounded-xl group transition-all">
                 <span>Start Generating Free</span>
                 <HiOutlineArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>

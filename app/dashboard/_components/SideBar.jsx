@@ -53,7 +53,7 @@ function SideBar({ onClose }) {
       <div>
         {/* Brand Header */}
         <Link href="/" className="flex items-center gap-2.5 px-2 py-2">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-primary to-sky-400 flex items-center justify-center shadow-md shadow-indigo-500/20">
+          <div className="w-9 h-9 rounded-xl bg-[#fde047] border-2 border-[#111] flex items-center justify-center shadow-[3px_3px_0_#111] [&_svg]:text-[#111]">
             <HiOutlineSparkles className="w-5 h-5 text-white" />
           </div>
           <div className="flex flex-col">
@@ -66,7 +66,7 @@ function SideBar({ onClose }) {
         {/* Quick Action Button */}
         <div className="mt-6 mb-4">
           <Link href="/create-course" onClick={() => onClose && onClose()}>
-            <Button className="w-full bg-primary hover:bg-primary-700 text-white font-medium shadow-md shadow-indigo-500/20 gap-2 rounded-xl">
+            <Button className="w-full bg-primary hover:bg-primary-700 text-white font-medium shadow-md gap-2 rounded-xl">
               <HiOutlinePlusCircle className="w-5 h-5" />
               <span>Create Course</span>
             </Button>
@@ -99,7 +99,7 @@ function SideBar({ onClose }) {
       </div>
 
       {/* Usage & Plan Card */}
-      <div className="p-4 rounded-2xl bg-gradient-to-br from-indigo-50/70 via-slate-50 to-white border border-indigo-100/80 shadow-sm mt-6">
+      <div className="p-4 rounded-2xl bg-[#86efac] border-2 border-[#111] shadow-[4px_4px_0_#111] mt-6">
         <div className="flex items-center justify-between text-xs font-semibold text-slate-700 mb-2">
           <span>Free Plan Usage</span>
           <span className="text-primary font-bold">{courseCount} / 5</span>

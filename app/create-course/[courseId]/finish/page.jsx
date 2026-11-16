@@ -109,7 +109,7 @@ function FinishLayout({ params }) {
           {/* Navigation CTAs */}
           <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href={`/course/${course?.courseId}/start`} className="w-full sm:w-auto">
-              <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary-700 text-white font-bold rounded-xl gap-2 shadow-lg shadow-indigo-500/25 px-8">
+              <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary-700 text-white font-bold rounded-xl gap-2 shadow-lg px-8">
                 <HiOutlinePlay className="w-5 h-5" />
                 <span>Start Learning Now</span>
               </Button>

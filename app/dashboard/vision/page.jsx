@@ -73,7 +73,7 @@ function Vision() {
       </div>
 
       {/* Tech Stack Banner */}
-      <div className="p-8 rounded-3xl bg-gradient-to-r from-slate-900 to-indigo-950 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="p-8 rounded-3xl bg-[#111] text-white shadow-[8px_8px_0_#ff5fa2] flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <span className="text-xs font-semibold text-indigo-300 uppercase tracking-wider">
             Architecture Stack

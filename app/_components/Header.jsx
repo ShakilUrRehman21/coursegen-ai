@@ -14,7 +14,7 @@ function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="relative w-9 h-9 rounded-xl bg-gradient-to-tr from-primary to-sky-400 flex items-center justify-center shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+          <div className="relative w-9 h-9 rounded-xl bg-[#fde047] border-2 border-[#111] flex items-center justify-center shadow-[3px_3px_0_#111] [&_svg]:text-[#111] group-hover:scale-105 transition-transform">
             <HiOutlineSparkles className="w-5 h-5 text-white animate-pulse" />
           </div>
           <div className="flex flex-col">
@@ -59,7 +59,7 @@ function Header() {
                 </Button>
               </Link>
               <Link href="/dashboard">
-                <Button size="sm" className="bg-primary hover:bg-primary-700 text-white shadow-md shadow-indigo-500/20 font-medium">
+                <Button size="sm" className="bg-primary hover:bg-primary-700 text-white shadow-md font-medium">
                   Get Started Free
                 </Button>
               </Link>

@@ -235,7 +235,7 @@ Return strictly a single JSON object with this exact structure:
             <Button
               disabled={checkStatus()}
               onClick={() => setActiveIndex(activeIndex + 1)}
-              className="rounded-xl bg-primary hover:bg-primary-700 text-white gap-2 font-semibold shadow-md shadow-indigo-500/20"
+              className="rounded-xl bg-primary hover:bg-primary-700 text-white gap-2 font-semibold shadow-md"
             >
               <span>Next Step</span>
               <HiOutlineArrowRight className="w-4 h-4" />
@@ -244,7 +244,7 @@ Return strictly a single JSON object with this exact structure:
             <Button
               disabled={checkStatus() || loading}
               onClick={GenerateCourseLayout}
-              className="rounded-xl bg-primary hover:bg-primary-700 text-white gap-2 font-semibold shadow-lg shadow-indigo-500/25 px-6"
+              className="rounded-xl bg-primary hover:bg-primary-700 text-white gap-2 font-semibold shadow-lg px-6"
             >
               <HiOutlineSparkles className="w-5 h-5" />
               <span>Generate Course Layout</span>

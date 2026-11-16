@@ -138,7 +138,7 @@ function UserCourseList() {
               Create your first interactive course with AI! Type a topic, pick your chapters, and get started in seconds.
             </p>
             <Link href="/create-course">
-              <Button className="bg-primary hover:bg-primary-700 text-white font-semibold rounded-xl gap-2 shadow-md shadow-indigo-500/20">
+              <Button className="bg-primary hover:bg-primary-700 text-white font-semibold rounded-xl gap-2 shadow-md">
                 <HiOutlinePlus className="w-4 h-4" />
                 <span>Create Your First Course</span>
               </Button>

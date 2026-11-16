@@ -57,7 +57,7 @@ function Course({ params }) {
 
             {course && (
               <Link href={`/course/${course?.courseId}/start`}>
-                <Button className="bg-primary hover:bg-primary-700 text-white font-semibold rounded-xl gap-2 shadow-md shadow-indigo-500/20 text-xs sm:text-sm">
+                <Button className="bg-primary hover:bg-primary-700 text-white font-semibold rounded-xl gap-2 shadow-md text-xs sm:text-sm">
                   <HiOutlinePlay className="w-4 h-4" />
                   <span>Start Course</span>
                 </Button>

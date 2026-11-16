@@ -100,7 +100,7 @@ function CourseBasicInfo({ course, refreshData, edit = true }) {
           {!edit && (
             <div className="pt-2">
               <Link href={`/course/${course?.courseId}/start`}>
-                <Button className="w-full sm:w-auto bg-primary hover:bg-primary-700 text-white font-semibold rounded-xl gap-2 shadow-lg shadow-indigo-500/25 px-8">
+                <Button className="w-full sm:w-auto bg-primary hover:bg-primary-700 text-white font-semibold rounded-xl gap-2 shadow-lg px-8">
                   <HiOutlinePlay className="w-5 h-5" />
                   <span>Start Course Now</span>
                 </Button>

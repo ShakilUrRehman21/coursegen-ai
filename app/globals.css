@@ -83,7 +83,8 @@ code,pre { font-family:'JetBrains Mono',ui-monospace,monospace !important; }
 h1,h2,h3 { font-weight:800 !important; letter-spacing:-.035em; }
 .border,.border-2 { border-color:#111 !important; }
 .border { border-width:2px; }
-.shadow-sm,.shadow,.shadow-md,.shadow-lg,.shadow-xl,.shadow-2xl { box-shadow:4px 4px 0 #111 !important; }
+.shadow-sm { box-shadow:2px 2px 0 #111 !important; }
+.shadow,.shadow-md,.shadow-card,.shadow-lg,.shadow-xl,.shadow-2xl { box-shadow:4px 4px 0 #111 !important; }
 button.bg-primary,a.bg-primary,.bg-indigo-600 { box-shadow:3px 3px 0 #111; border:2px solid #111; }
 .glass { background:rgba(255,251,234,.92) !important; border-bottom:2px solid #111 !important; }
 .gradient-text { background:none !important; -webkit-text-fill-color:#111 !important; color:#111 !important; }
