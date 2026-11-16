@@ -13,9 +13,9 @@ function AddCourse() {
   const isLimitReached = courseCount >= 5;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-[#fde047] border-[3px] border-[#111] p-6 sm:p-8 text-[#111] shadow-[8px_8px_0_#111]">
+    <div className="relative overflow-hidden rounded-2xl bg-white border-[3px] border-[#111] p-6 sm:p-8 text-[#111] shadow-[8px_8px_0_#111]">
       {/* Background decorative glow */}
-      <div className="absolute right-0 top-0 -mt-6 -mr-6 w-56 h-56 rounded-full bg-[#ff5fa2] border-[3px] border-[#111] hidden md:block pointer-events-none" />
+      <div className="absolute right-0 top-0 -mt-6 -mr-6 hidden pointer-events-none" />
 
       <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
@@ -24,7 +24,7 @@ function AddCourse() {
             <span>AI Curriculum Engine</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.04em] leading-none">
             Welcome back, {user?.firstName || user?.fullName || 'Creator'}!
           </h2>
           <p className="mt-2 text-[#111]/80 text-sm max-w-xl leading-relaxed">

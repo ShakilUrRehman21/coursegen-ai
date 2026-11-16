@@ -104,3 +104,9 @@ a, button { transition:color .2s, background-color .2s, border-color .2s, box-sh
 button:not(:disabled):active { transform:scale(.97); }
 html { scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
 @media (prefers-reduced-motion:reduce) { main > *, main .grid > * { animation:none !important; } html { scroll-behavior:auto; } }
+
+/* DASHBOARD 2026 */
+main .grid > .group:nth-child(odd) { rotate:-1deg; }
+main .grid > .group:nth-child(even) { rotate:1deg; }
+main .grid > .group:hover { rotate:0deg; }
+main h2 { letter-spacing:-.04em; }

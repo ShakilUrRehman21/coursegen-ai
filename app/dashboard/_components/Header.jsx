@@ -12,7 +12,7 @@ function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-30 flex justify-between items-center px-6 py-3.5 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+      <header className="sticky top-0 z-30 flex justify-between items-center px-6 py-3.5 bg-[#fde047] border-b-[3px] border-[#111]">
         {/* Mobile menu button & Title */}
         <div className="flex items-center gap-3">
           <button

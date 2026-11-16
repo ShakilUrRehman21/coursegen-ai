@@ -49,7 +49,7 @@ function SideBar({ onClose }) {
   const progressPercent = Math.min((courseCount / 5) * 100, 100);
 
   return (
-    <div className="h-full flex flex-col justify-between bg-white border-r border-slate-200 p-5 select-none">
+    <div className="h-full flex flex-col justify-between bg-[#fde047] border-r-[3px] border-[#111] p-5 select-none">
       <div>
         {/* Brand Header */}
         <Link href="/" className="flex items-center gap-2.5 px-2 py-2">
@@ -84,11 +84,11 @@ function SideBar({ onClose }) {
                 onClick={() => onClose && onClose()}
                 className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all ${
                   isActive
-                    ? 'bg-indigo-50/80 text-primary font-semibold shadow-sm'
+                    ? 'bg-[#111] text-[#fde047] font-bold shadow-[3px_3px_0_#ff5fa2]'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                 }`}
               >
-                <div className={`${isActive ? 'text-primary' : 'text-slate-400'}`}>
+                <div className={`${isActive ? 'text-[#fde047]' : 'text-[#111]'}`}>
                   {item.icon}
                 </div>
                 <span>{item.name}</span>

@@ -42,12 +42,15 @@ function CourseCard({ course, refreshData, displayUser = false }) {
     course?.courseBanner && course?.courseBanner !== ''
       ? course.courseBanner
       : '/placeholder.jpg';
+  const blockColors = ['#7dd3fc', '#ff8fc0', '#86efac', '#c4b5fd'];
+  const blockColor = blockColors[(Number(course?.id) || 0) % blockColors.length];
 
   return (
-    <div className="group relative flex flex-col justify-between bg-white rounded-2xl border border-slate-200/80 shadow-card hover:shadow-xl hover:border-indigo-200 transition-all overflow-hidden">
+    <div className="group relative flex flex-col justify-between bg-white rounded-2xl border-[3px] border-[#111] shadow-[6px_6px_0_#111] hover:-translate-y-1 hover:shadow-[8px_8px_0_#111] transition-all overflow-hidden">
       <div>
         {/* Banner image with hover effect */}
-        <Link href={`/course/${course?.courseId}`} className="block relative w-full h-44 overflow-hidden bg-slate-100">
+        <Link href={`/course/${course?.courseId}`} className="block relative w-full h-28 overflow-hidden border-b-[3px] border-[#111]" style={{ background: blockColor }}>
+          {bannerSrc !== '/placeholder.jpg' ? (
           <Image
             src={bannerSrc}
             alt={courseTitle}
@@ -56,13 +59,18 @@ function CourseCard({ course, refreshData, displayUser = false }) {
             className="object-cover group-hover:scale-105 transition-transform duration-300"
             unoptimized={bannerSrc.startsWith('data:') || bannerSrc.startsWith('blob:')}
           />
+          ) : (
+            <div className="absolute inset-0 flex items-end p-4">
+              <span className="text-2xl font-extrabold tracking-tight text-[#111] line-clamp-1">{course?.category || "Course"}</span>
+            </div>
+          )}
           <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-sm text-[11px] font-semibold text-slate-700 shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-primary" />
             <span>{category}</span>
           </div>
 
           {course?.publish && (
-            <div className="absolute top-3 right-3 px-2 py-0.5 rounded-md bg-emerald-500/90 text-white text-[10px] font-bold tracking-wide uppercase shadow-sm">
+            <div className="absolute top-3 right-3 px-2 py-0.5 rounded-md bg-[#111] text-[#fde047] text-[10px] font-bold tracking-wide uppercase shadow-sm">
               Ready
             </div>
           )}

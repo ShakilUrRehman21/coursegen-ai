@@ -9,7 +9,7 @@ function DashboardLayout({ children }) {
 
   return (
     <UserCourseListContext.Provider value={{ userCourseList, setUserCourseList }}>
-      <div className="min-h-screen bg-slate-50 flex text-slate-900">
+      <div className="min-h-screen bg-[#fde047] flex text-[#111]">
         {/* Desktop Fixed Sidebar */}
         <aside className="w-64 hidden md:block fixed inset-y-0 left-0 z-40">
           <SideBar />
